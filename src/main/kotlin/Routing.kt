@@ -9,6 +9,7 @@ import io.ktor.server.plugins.statuspages.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import com.example.model.TariffCalculator
 import java.sql.Connection
 import java.sql.DriverManager
 import org.jetbrains.exposed.sql.*
@@ -20,10 +21,24 @@ fun Application.configureRouting() {
         }
     }
     routing {
-        get("/") {
-            call.respondText("Hello World!")
+        get("/ping") {
+            call.respondText("pong")
         }
-        // Static plugin. Try to access `/static/index.html`
-        staticResources("/static", "static")
+
+        get("/calculateDelivery") {
+            call.respond(TariffCalculator().calculate())
+        }
+
+        get("/createShipment") {
+            call.respondText("pong")
+        }
+
+        get("/getShipmentStatus") {
+            call.respondText("pong")
+        }
+
+        get("/cancelShipment") {
+            call.respondText("pong")
+        }
     }
 }

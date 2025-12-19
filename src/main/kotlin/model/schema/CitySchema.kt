@@ -1,4 +1,4 @@
-package com.example
+package com.example.model.schema
 
 import kotlinx.coroutines.*
 import kotlinx.serialization.Serializable
@@ -15,7 +15,6 @@ class CityService(private val connection: Connection) {
         private const val INSERT_CITY = "INSERT INTO cities (name, population) VALUES (?, ?)"
         private const val UPDATE_CITY = "UPDATE cities SET name = ?, population = ? WHERE id = ?"
         private const val DELETE_CITY = "DELETE FROM cities WHERE id = ?"
-
     }
 
     init {
